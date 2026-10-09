@@ -1,19 +1,31 @@
+from pathlib import Path
 from matplotlib.testing.decorators import image_comparison
-import matplotlib.pyplot as plt
-import numpy as np
 import zodiac
 
+
+
+@image_comparison(
+    baseline_images=["plot"],
+    remove_text=False,
+    extensions=["png"],
+)
 def test_plot_png():
-    deco = image_comparison(baseline_images=['plot'], remove_text=False, extensions=['png'])
-    return deco(lambda: zodiac.my_plot)()
+    zodiac.my_plot()
 
 
+@image_comparison(
+    baseline_images=["bar"],
+    remove_text=False,
+    extensions=["png"],
+)
 def test_bar_png():
-    deco = image_comparison(baseline_images=['bar'], remove_text=False, extensions=['png'])
-    return deco(lambda: zodiac.my_bar)()
+    zodiac.my_bar()
 
 
+@image_comparison(
+    baseline_images=["hist"],
+    remove_text=False,
+    extensions=["png"],
+)
 def test_hist_png():
-    deco = image_comparison(baseline_images=['hist'], remove_text=False, extensions=['png'])
-    return deco(lambda: zodiac.my_hist)()
-
+    zodiac.my_hist()
